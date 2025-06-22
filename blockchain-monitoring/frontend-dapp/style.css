@@ -1,0 +1,134 @@
+/* style.css (Desain Minimalis & Profesional) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+:root {
+    --bg-color: #f8f9fa; /* Latar belakang abu-abu sangat terang */
+    --card-bg: #ffffff;
+    --primary-color: #4CAF50; /* Hijau Jamur */
+    --secondary-color: #007bff; /* Biru untuk link/tombol sekunder */
+    --text-dark: #343a40;
+    --text-light: #6c757d;
+    --border-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 2.5rem;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+.export-btn {
+    background-color: var(--primary-color);
+    font-size: 0.9rem;
+    padding: 8px 16px;
+}
+
+#refreshAllButton {
+    width: 100%;
+    margin-top: 1rem;
+    background-color: var(--text-light);
+}
+
+#latestFromBlockchain {
+    font-family: monospace;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.chart-card {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-container {
+    flex-grow: 1;
+    position: relative;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Penyesuaian khusus untuk elemen yang tidak digunakan lagi */
+/* `.connection-status` tidak lagi disembunyikan di sini,
+   tapi dikontrol oleh app.js untuk pengalaman yang lebih baik */
+.contract-info {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+}

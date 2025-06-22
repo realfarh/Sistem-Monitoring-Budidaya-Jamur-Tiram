@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dashboard Monitoring Jamur</title>
+    <link rel="stylesheet" href="style.css"/>
+    <!-- Library untuk Grafik dan Web3 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌿 Dashboard Monitoring Jamur Tiram</h1>
+            <p>Mencatat dan menampilkan data sensor langsung dari Blockchain.</p>
+        </header>
+
+        <!-- Elemen ini akan disembunyikan oleh JavaScript setelah terhubung -->
+        <div class="connection-status card">
+            <button id="connectButton">Hubungkan Wallet MetaMask</button>
+            <p id="status">Status: Tidak Terhubung</p>
+            <p id="contractAddressInfo" class="contract-info"></p>
+        </div>
+
+        <!-- Bagian utama ini akan muncul setelah wallet terhubung -->
+        <main id="main-content" class="hidden">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Data Terakhir dari Blockchain</h2>
+                    <button id="exportButton" class="export-btn">📄 Ekspor ke Excel</button>
+                </div>
+                <p id="latestFromBlockchain">Menunggu data...</p>
+            </div>
+            
+            <div class="card chart-card">
+                <h2>Grafik Real-time (Diperbarui Otomatis)</h2>
+                <div class="chart-container">
+                    <canvas id="sensorChart"></canvas>
+                </div>
+                <button id="refreshAllButton">🔄 Muat Ulang Grafik</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Skrip Aplikasi -->
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

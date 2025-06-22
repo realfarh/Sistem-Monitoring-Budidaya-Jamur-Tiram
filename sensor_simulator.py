@@ -1,0 +1,74 @@
+import socket
+import time
+import json
+import random
+from datetime import datetime
+
+# --- KONFIGURASI ---
+# Alamat dan port ini harus sama dengan yang didengarkan oleh server Rust Anda.
+TCP_HOST = '127.0.0.1'
+TCP_PORT = 7878
+
+# Anda bisa mengubah nilai-nilai ini untuk simulasi
+LOKASI_SENSOR = "Produksi Jamur"
+TAHAP_PROSES = "Jamur tiram"
+ID_SENSOR = "SHT20-PascaPanen-001"
+
+INTERVAL_DETIK = 5 # Jeda waktu antar pengiriman data
+
+# --- PROGRAM UTAMA ---
+
+print("=============================================")
+print("===   SIMULATOR SENSOR JAMUR DIMULAI      ===")
+print("=============================================")
+print(f"Target Server: {TCP_HOST}:{TCP_PORT}")
+print("Tekan Ctrl+C untuk berhenti.")
+print("-" * 45)
+
+try:
+    while True:
+        # 1. Hasilkan data acak yang realistis untuk jamur tiram
+        # Suhu ideal: 24-29°C, Kelembaban ideal: 80-90%
+        suhu = round(random.uniform(24.0, 29.0), 1)
+        kelembaban = round(random.uniform(80.0, 90.0), 1)
+        waktu_sekarang = datetime.now().isoformat()
+
+        # 2. Buat paket data (payload) dalam format JSON
+        # Pastikan kunci ini cocok dengan yang diharapkan oleh server Rust
+        payload = {
+            "timestamp": waktu_sekarang,
+            "sensor_id": ID_SENSOR,
+            "location": LOKASI_SENSOR,
+            "process_stage": TAHAP_PROSES,
+            "temperature_celsius": suhu,
+            "humidity_percent": kelembaban
+        }
+        
+        # Ubah dictionary Python menjadi string JSON
+        json_payload = json.dumps(payload)
+
+        print(f"[{datetime.now().strftime('%H:%M:%S')}] Mengirim data: {json_payload}")
+
+        try:
+            # 3. Kirim data melalui koneksi TCP
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.connect((TCP_HOST, TCP_PORT))
+                # Kirim data, tambahkan karakter newline (\n) karena server Rust membaca per baris
+                s.sendall(f"{json_payload}\n".encode('utf-8'))
+                
+                # Terima balasan dari server (opsional tapi bagus untuk debugging)
+                response = s.recv(1024)
+                print(f"    -> Respon Server: {response.decode('utf-8').strip()}")
+
+        except ConnectionRefusedError:
+            print("    -> 🔴 KONEKSI DITOLAK. Pastikan server Rust (cargo run) sudah berjalan.")
+        except Exception as e:
+            print(f"    -> 🔴 Terjadi error koneksi: {e}")
+
+        # 4. Tunggu sebelum pengiriman berikutnya
+        print("-" * 45)
+        time.sleep(INTERVAL_DETIK)
+
+except KeyboardInterrupt:
+    print("\nSimulator dihentikan oleh pengguna.")
+
