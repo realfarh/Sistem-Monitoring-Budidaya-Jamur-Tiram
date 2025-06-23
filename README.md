@@ -1,4 +1,4 @@
-🍄MushChain: Mushroom Chain Smart Monitoring Untuk Otomatisasi dan Keamanan Data Rantai Pasok Berbasis Blockchain 🍄
+#🍄MushChain: Mushroom Chain Smart Monitoring Untuk Otomatisasi dan Keamanan Data Rantai Pasok Berbasis Blockchain 🍄
 Deskripsi Proyek
 
 MushChain adalah sistem monitoring cerdas untuk budidaya jamur tiram yang mengintegrasikan teknologi sensor dan smart contract Ethereum guna menjamin keamanan, transparansi, dan keandalan data dalam rantai pasok. Dirancang untuk petani jamur skala kecil hingga menengah, sistem ini memantau suhu dan kelembapan secara real-time melalui sensor digital SHT20 dan mencatat data secara otomatis ke dalam blockchain. Dengan dukungan Decentralized Application (DApp), seluruh catatan lingkungan tumbuh jamur tidak hanya tersimpan secara aman, tetapi juga dapat diverifikasi oleh pihak ketiga seperti distributor dan konsumen, sehingga meningkatkan kepercayaan dan akuntabilitas. Inovasi ini mendorong digitalisasi pertanian dan membuka jalan bagi pemanfaatan teknologi web3 di sektor agrikultur.
