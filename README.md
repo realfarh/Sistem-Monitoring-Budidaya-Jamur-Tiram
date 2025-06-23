@@ -76,7 +76,7 @@ python3 sensor_simulator.py
 ## 7. Mengaktifkan Lingkungan Virtual Python
 - Buka terminal baru di direktori induk proyek.
 - Aktifkan lingkungan virtual (.venv) dengan menjalankan perintah:
-``bash
+```bash
 source jamur.venv/bin/activate
 ```
 
@@ -87,11 +87,10 @@ source jamur.venv/bin/activate
 python3 main.py
 ```
 
-## 9. Menampilkan Dasbor Web3
+## 9. Menampilkan Dashboard Web3
 - Buka terminal baru.
 - Masuk ke direktori aplikasi frontend dengan perintah: cd blockchain-monitoring/frontend-dapp.
 - Jalankan live server untuk membuka dasbor di browser Anda:
 ```bash
 live-server
 ```
-
